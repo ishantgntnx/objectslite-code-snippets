@@ -2,7 +2,7 @@
 This script uploads a file to objects-lite using the AWS SDK for Python (Boto3) with parallel multipart upload.
 
 Parallel multipart upload allows you to upload a large object as a set of smaller parts concurrently, which can
-significantly speed up the upload process.
+significantly speed up the upload process. It uses a ThreadPoolExecutor to upload parts in parallel.
 
 As a prerequisite, the script requires the Boto3 library to be installed.
 Install it using the following command:
@@ -123,8 +123,6 @@ def main():
 
     # Get encoded credentials
     encoded_credentials = get_credentials()
-
-    print(encoded_credentials)
 
     # Create S3 client
     s3_client = create_s3_client(args.endpoint, encoded_credentials)

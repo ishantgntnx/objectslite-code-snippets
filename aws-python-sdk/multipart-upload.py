@@ -102,8 +102,6 @@ def multipart_upload(s3_client, file_path, bucket, key, part_size):
         print(f"ETag: {response['ETag']}")
     except Exception as e:
         print(f"Failed to upload file to objectslite with error: {e}")
-        # Abort the multipart upload in case of failure
-        s3_client.abort_multipart_upload(Bucket=bucket, Key=key, UploadId=upload_id)
 
 def main():
     # Define command-line arguments
