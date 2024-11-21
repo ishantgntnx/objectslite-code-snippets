@@ -36,7 +36,7 @@ aws s3api put-object --bucket <bucket-name> --body <file-path> --key <object-key
 After the file is uploaded successfully, the command will print the ETag of the uploaded object.
 
 #### Limitations
-- This command only supports uploading objects smaller than 5 GB. Consider using multipart upload or high-level `aws s3 cp` command for larger files.
+- This command only supports uploading objects smaller than 5 GB. Consider using multipart upload for larger files.
 
 ### Multipart Upload
 AWS CLI multipart upload commands can be used to perform multipart upload APIs on objects-lite. Following is the list of commands to be used:
