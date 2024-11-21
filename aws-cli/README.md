@@ -92,8 +92,7 @@ Further, `upload-part` will return etag for the corresponding part uploaded.
 Finally, `complete-multipart-upload` will return the etag for the finalized uploaded object.
 
 #### Limitations
-- These commands do not handle resumable uploads or retries in case of failure. In that case, the user needs to consider re-uploading the file.
-- These commands does not support concurrent/parallel uploads. Each part is uploaded sequentially. Consider using high-level `aws s3 cp` command to achieve concurrency.
+- Users need to keep an account of successfully uploaded parts to resume the overall upload and refrain from uploading the uploaded parts again in case of failure. Note that the list parts API is not supported.
 
 ### High-level upload command
 The AWS CLI command provides a high-level command, `aws s3 cp,` that allows users to copy files from local storage to S3-compatible endpoints. It simplifies the uploading process and supports automatic multipart uploads for large files. It also provides support for concurrent uploads, improving performance.
